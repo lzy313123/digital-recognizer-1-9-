@@ -58,40 +58,40 @@
 # 安装依赖
 pip install torch torchvision matplotlib opencv-python pillow numpy
 
-#训练模型
+# 训练模型
 bash
 python 识别数字.py
 首次运行会自动下载 MNIST 数据集（约 60 MB），训练约 10 个 epoch 后生成 mnist_cnn.pth。
 
-#启动画板
+# 启动画板
 bash
 python digital_draw.py
 弹出窗口后，用鼠标绘制数字（按住左键拖动），点击“识别”按钮即可看到结果。
 
-###参数调节
+### 参数调节
 画笔粗细：在 digital_draw.py 的 paint 方法中修改 width 值（默认 8）。
 
 小数字增强：修改 preprocess_image 中的 min_size（默认 20），数值越大数字主体越大。
 
 二值化阈值：可将 Otsu 自适应阈值改为固定值，如 cv2.threshold(img_array, 100, 255, cv2.THRESH_BINARY_INV)。
 
-###常见问题
-#画板识别不准怎么办？
+### 常见问题
+# 画板识别不准怎么办？
 
 确保绘制的数字清晰，尽量写大一些。
 
 可调整 min_size 或二值化阈值。
 
-#若经常出现误判，可增加训练时的数据增强范围（修改 scale 和 translate）。
+# 若经常出现误判，可增加训练时的数据增强范围（修改 scale 和 translate）。
 
-#模型加载失败？
+# 模型加载失败？
 
 确认 mnist_cnn.pth 与脚本在同一目录。
 
 如果重新训练过，请确保网络结构与保存的模型一致。
 
 
-###许可证
+### 许可证
 本项目采用 MIT 许可证，详情见 LICENSE 文件。
 
 
