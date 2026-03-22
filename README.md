@@ -1,4 +1,4 @@
-以下是一个格式优化后的 `README.md`，修正了代码块、间距和列表问题，并采用清晰的层级结构：
+在你的项目根目录下创建或修改 `README.md` 文件，内容如下：
 
 ```markdown
 # 手写数字识别系统
@@ -22,12 +22,12 @@
 
 ```
 .
-├── 识别数字.py          # 训练脚本（CNN网络，数据增强）
-├── digital_draw.py      # 画板识别程序（加载模型，实时预测）
-├── mnist_cnn.pth        # 训练好的模型权重（需自行训练生成）
-├── .gitignore           # Git忽略文件（Python模板）
-├── LICENSE              # MIT许可证
-└── README.md            # 项目说明文档
+├── 识别数字.py              # 训练脚本（CNN网络，数据增强）
+├── digital_draw.py          # 画板识别程序（加载模型，实时预测）
+├── mnist_cnn.pth            # 训练好的模型权重（需自行训练生成）
+├── .gitignore               # Git忽略文件（Python模板）
+├── LICENSE                  # MIT许可证
+└── README.md                # 项目说明文档
 ```
 
 ---
@@ -62,6 +62,7 @@
 
 ### 环境配置
 ```bash
+# 安装依赖
 pip install torch torchvision matplotlib opencv-python pillow numpy
 ```
 
@@ -79,27 +80,40 @@ python digital_draw.py
 
 ---
 
+## 效果示例
+
+| 绘制数字 | 识别结果 |
+|----------|----------|
+| ![手写3](https://via.placeholder.com/80?text=3) | 3 |
+| ![手写8](https://via.placeholder.com/80?text=8) | 8 |
+| ![手写7](https://via.placeholder.com/80?text=7) | 7 |
+
+（实际效果请自行运行体验）
+
+---
+
 ## 参数调节
 
 - **画笔粗细**：在 `digital_draw.py` 的 `paint` 方法中修改 `width` 值（默认 8）。
 - **小数字增强**：修改 `preprocess_image` 中的 `min_size`（默认 20），数值越大数字主体越大。
-- **二值化阈值**：可将 Otsu 自适应阈值改为固定值，例如：
-  ```python
-  cv2.threshold(img_array, 100, 255, cv2.THRESH_BINARY_INV)
-  ```
+- **二值化阈值**：可将 Otsu 自适应阈值改为固定值，如 `cv2.threshold(img_array, 100, 255, cv2.THRESH_BINARY_INV)`。
 
 ---
 
 ## 常见问题
 
-### 画板识别不准怎么办？
-- 确保绘制的数字清晰，尽量写大一些。
-- 可调整 `min_size` 或二值化阈值。
-- 若经常出现误判，可增加训练时的数据增强范围（修改 `scale` 和 `translate`）。
+1. **画板识别不准怎么办？**  
+   - 确保绘制的数字清晰，尽量写大一些。  
+   - 可调整 `min_size` 或二值化阈值。  
+   - 若经常出现误判，可增加训练时的数据增强范围（修改 `scale` 和 `translate`）。
 
-### 模型加载失败？
-- 确认 `mnist_cnn.pth` 与脚本在同一目录。
-- 如果重新训练过，请确保网络结构与保存的模型一致。
+2. **模型加载失败？**  
+   - 确认 `mnist_cnn.pth` 与脚本在同一目录。  
+   - 如果重新训练过，请确保网络结构与保存的模型一致。
+
+3. **推送 GitHub 时模型文件过大？**  
+   - 模型文件约 2-3 MB，可以直接推送。  
+   - 若不想包含，可在 `.gitignore` 中添加 `*.pth`。
 
 ---
 
@@ -109,10 +123,13 @@ python digital_draw.py
 
 ---
 
+## 贡献
+
+欢迎提交 Issue 和 Pull Request。
+
+---
+
 ## 参考
 
 - [PyTorch 官方文档](https://pytorch.org/)
 - [MNIST 数据库](http://yann.lecun.com/exdb/mnist/)
-```
-
-你可以直接将这段内容复制到你的 `README.md` 文件中，替换原有内容。
