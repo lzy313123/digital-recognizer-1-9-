@@ -1,5 +1,3 @@
-以下是按 Word 风格格式化后的完整 `README.md`，删除了效果示例部分，并统一了标题层级、列表样式和间距：
-
 ```markdown
 # 手写数字识别系统
 
@@ -20,15 +18,12 @@
 
 ## 文件结构
 
-```
-.
-├── 识别数字.py          # 训练脚本（CNN网络，数据增强）
-├── digital_draw.py      # 画板识别程序（加载模型，实时预测）
-├── mnist_cnn.pth        # 训练好的模型权重（需自行训练生成）
-├── .gitignore           # Git忽略文件（Python模板）
-├── LICENSE              # MIT许可证
-└── README.md            # 项目说明文档
-```
+- `识别数字.py` – 训练脚本（CNN网络，数据增强）  
+- `digital_draw.py` – 画板识别程序（加载模型，实时预测）  
+- `mnist_cnn.pth` – 训练好的模型权重（需自行训练生成）  
+- `.gitignore` – Git忽略文件（Python模板）  
+- `LICENSE` – MIT许可证  
+- `README.md` – 项目说明文档  
 
 ---
 
